@@ -1,5 +1,5 @@
 """
-A   CapitalT   class and methods that use the Cross class.
+A   CapitalT   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
@@ -14,9 +14,9 @@ def main():
     Calls the test functions.
     As you implement CapitalT method uncomment the appropriate tests.
     """
-    # --------------------------------------------------------------
+    # -------------------------------------------------------------------------
     #   Uncomment only 1 test at a time as you develop your code.
-    # --------------------------------------------------------------
+    # -------------------------------------------------------------------------
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
@@ -38,9 +38,11 @@ def run_test_simple_t():
     window = rg.RoseWindow(600, 400, 'Test 1 - Simple Ts')
     t1 = CapitalT(rg.Point(300, 50), 100, 200, 20)
     print("Expected: Point(250.0, 40.0) Point(350.0, 60.0)")
-    print("Actual:  ", t1.h_rect.get_upper_left_corner(), t1.h_rect.get_lower_right_corner())
+    print("Actual:  ", t1.h_rect.get_upper_left_corner(),
+          t1.h_rect.get_lower_right_corner())
     print("Expected: Point(290.0, 40.0) Point(310.0, 240.0)")
-    print("Actual:  ", t1.v_rect.get_upper_left_corner(), t1.v_rect.get_lower_right_corner())
+    print("Actual:  ", t1.v_rect.get_upper_left_corner(),
+          t1.v_rect.get_lower_right_corner())
     t1.attach_to(window)
     t2 = CapitalT(rg.Point(150, 150), 100, 150, 40)
     t2.attach_to(window)
@@ -101,9 +103,9 @@ def run_test_clone():
     window.close_on_mouse_click()
 
 
-########################################################################
+###############################################################################
 # The   CapitalT   class (and its methods) begins here.
-########################################################################
+###############################################################################
 
 
 class CapitalT(object):
@@ -146,12 +148,12 @@ class CapitalT(object):
           :type height:   int
           :type letter_thickness:   int
         """
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
         # TODO: 3.
         #   READ the above specification, including the Example.
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
 
     def attach_to(self, window):
         """
@@ -171,12 +173,12 @@ class CapitalT(object):
         Type hints:
           :type window: rg.RoseWindow
         """
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
         # TODO: 4.
         #   READ the above specification, including the Example.
         #   Implement and test this method by looking at the console and
         #     the graphics window (compare it to simple_t.pdf)
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
 
     def set_colors(self, fill_color, outline_color):
         """
@@ -198,13 +200,13 @@ class CapitalT(object):
           :type fill_color: str
           :type outline_color: str
         """
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
         # TODO: 5.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
         #     set_colors.pdf.
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
 
     def move_by(self, dx, dy):
         """
@@ -228,14 +230,14 @@ class CapitalT(object):
           :type dx: int
           :type dy: int
         """
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
         # TODO: 6.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
         #     move_by.pdf. Note: the pdf shows the different locations
         #     that the T moves through, but there is only 1 T at any moment.
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
 
     def clone(self):
         """
@@ -256,18 +258,16 @@ class CapitalT(object):
         Type hints:
           :rtype: CapitalT
         """
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
         # TODO: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
         #     clone.pdf.
-        # --------------------------------------------------------------
+        # ---------------------------------------------------------------------
 
 
-# ----------------------------------------------------------------------
-# If this module is running at the top level (as opposed to being
-# imported by another module), then call the 'main' function.
-# ----------------------------------------------------------------------
-if __name__ == '__main__':
-    main()
+# -----------------------------------------------------------------------------
+# Calls  main  to start the ball rolling.
+# -----------------------------------------------------------------------------
+main()

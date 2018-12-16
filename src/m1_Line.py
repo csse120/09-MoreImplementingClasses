@@ -10,6 +10,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 import math
 import m1t_test_Line as m1t
 
+
 ###############################################################################
 # IMPORTANT:
 #   Your instructor will help you get started on this exercise.
@@ -61,6 +62,7 @@ def main():
         run_test_is_parallel()
     if m1t.is_implemented('reset'):
         run_test_reset()
+
 
 ###############################################################################
 # Students:
