@@ -12,7 +12,7 @@ import rosegraphics as rg
 def main():
     """
     Calls the test functions.
-    As you implement CapitalT method uncomment the appropriate tests.
+    As you implement CapitalT methods, uncomment the appropriate tests.
     """
     # -------------------------------------------------------------------------
     #   Uncomment only 1 test at a time as you develop your code.
@@ -111,28 +111,38 @@ def run_test_clone():
 class CapitalT(object):
     """
     Manages a CapitalT graphics object which is made up of two rectangles.
-    See the PDFs, especially dimenstions.pdf, to help you understand this.
+    *** See the PDFs, especially dimensions.pdf, to help you understand this.
     """
 
     def __init__(self, intersection_center, width, height, letter_thickness):
         """
+        *** See   dimensions.pdf   to understand the following! ***
+
         What comes in:
            -- self
            -- an rg.Point for the intersection center of the CapitalT
               -- This point is also center of the horizontal rectangle.
-           -- a int for the width of the CapitalT (the width of the horizontal rectangle)
-           -- a int for the height of the CapitalT (the height of the vertical rectangle)
-           -- a int for the thickness of each rectangle (the letter's thickness)
+           -- a int for the width of the CapitalT
+                 (that is, the width of the horizontal rectangle)
+           -- a int for the height of the CapitalT
+                 (that is, the height of the vertical rectangle)
+           -- a int for the CapitalT's thickness, that is,
+                 the height of the horizontal rectangle and also
+                 the width of the vertical rectangle.
         What goes out:  Nothing (i.e., None).
         Side effects: Sets two instance variables named:
-          -- h_rect  (to represent the horizontal rectangle in the T, the top bar)
-          -- v_rect  (to represent the vertical rectangle in the T, the | part of the T)
+          -- h_rect  (to represent the horizontal rectangle in the T,
+                      that is, the top bar)
+          -- v_rect  (to represent the vertical rectangle in the T,
+                      that is, the | part of the T)
 
-           *** See the dimensions PDF for the exact placement of the rectangles in the T. ***
+           *** See   dimensions.pdf   to understand the above! ***
 
-        Each rectangle is an rg.Rectangle. Unlike prior modules you are NOT
-            allowed to make any other instance variables. You may only use
-            exactly these two and must figure out how to do the problem with ONLY
+        Each rectangle is an rg.Rectangle.
+
+        IMPORTANT RESTRICTION:  Unlike prior modules you are NOT allowed
+            to make any other instance variables than h_rect and v_rect.
+            You must figure out how to do the problem with ONLY
             those two instance variables.
 
         Example:
@@ -142,17 +152,23 @@ class CapitalT(object):
                 -- t1.v_rect would have an upper left corner of (290, 40)
                 -- t1.v_rect would have an lower right corner of (310, 240)
 
+            *** Make sure that you understand this example before     ***
+            *** proceeding. See    dimensions.pdf   to understand it! ***
+
         Type hints:
           :type intersection_center: rg.Point
-          :type width:   int
-          :type height:   int
-          :type letter_thickness:   int
+          :type width:               int
+          :type height:              int
+          :type letter_thickness:    int
         """
         # ---------------------------------------------------------------------
         # TODO: 3.
         #   READ the above specification, including the Example.
-        #   Implement this method
-        #   Note: you will need to also implement attach_to before testing
+        #   Implement this method, using the instance variables
+        #      h_rect
+        #      v_rect
+        #   and *** NO OTHER INSTANCE VARIABLES. ***
+        #   Note: Implement   attach_to   before testing this __init__ method.
         # ---------------------------------------------------------------------
 
     def attach_to(self, window):
@@ -162,8 +178,8 @@ class CapitalT(object):
            -- an rg.RoseWindow
         What goes out:  Nothing (i.e., None).
         Side effects:
-          -- Attaches both instance rectangles to the given window.
-          -- Hint: Attach h_rect second to make it draw in front of v_rect
+          -- Attaches both instance-variable rectangles to the given window.
+          -- Hint: Attach  h_rect  second to make it draw in front of  v_rect.
 
         Example:
             window = rg.RoseWindow()
@@ -176,8 +192,11 @@ class CapitalT(object):
         # ---------------------------------------------------------------------
         # TODO: 4.
         #   READ the above specification, including the Example.
-        #   Implement and test this method by looking at the console and
-        #     the graphics window (compare it to simple_t.pdf)
+        #   Implement this method, then TEST it by:
+        #     a. Un-comment the call to its test function, in main.  Run.
+        #     b. Look at the Console output.  Does it indicate any errors?
+        #     c. Compare the graphics window to the   simple_t.pdf   pictures.
+        #        They should look exactly the same as each other.
         # ---------------------------------------------------------------------
 
     def set_colors(self, fill_color, outline_color):
@@ -188,8 +207,10 @@ class CapitalT(object):
           -- a string that represents a valid rosegraphics color
         What goes out:  Nothing (i.e., None).
         Side effects:
-          -- sets the fill_color of both rectangles to the given fill color
-          -- sets the outline_color of both rectangles to the given outline color
+          -- Sets the fill_color of both instance-variable rectangles
+               to the given fill color.
+          -- Sets the outline_color of both instance-variable rectangles
+               to the given outline color.
 
         Example:
             window = rg.RoseWindow()
@@ -197,15 +218,17 @@ class CapitalT(object):
             t1.set_color('red', 'blue')
 
         Type hints:
-          :type fill_color: str
+          :type fill_color:    str
           :type outline_color: str
         """
         # ---------------------------------------------------------------------
         # TODO: 5.
         #   READ the above specification, including the Example.
-        #   Implement and test this method by uncommenting the appropriate
-        #     run_test method in main. Compare the graphics window to
-        #     set_colors.pdf.
+        #   Implement this method, then TEST it by:
+        #     a. Un-comment the call to its test function, in main.  Run.
+        #     b. Look at the Console output.  Does it indicate any errors?
+        #     c. Compare the graphics window to the  set_colors.pdf   pictures.
+        #        They should look exactly the same as each other.
         # ---------------------------------------------------------------------
 
     def move_by(self, dx, dy):
@@ -216,7 +239,8 @@ class CapitalT(object):
            -- an int amount to move in the y direction
         What goes out:  Nothing (i.e., None).
         Side effects:
-          -- Moves both h_rect and v_rect the specified dx and dy amounts.
+          -- Moves both instance-variable rectangles the specified distances
+               in the x and y directions, respectively.
 
         Example:
             window = rg.RoseWindow()
@@ -233,10 +257,14 @@ class CapitalT(object):
         # ---------------------------------------------------------------------
         # TODO: 6.
         #   READ the above specification, including the Example.
-        #   Implement and test this method by uncommenting the appropriate
-        #     run_test method in main. Compare the graphics window to
-        #     move_by.pdf. Note: the pdf shows the different locations
-        #     that the T moves through, but there is only 1 T at any moment.
+        #   Implement this method, then TEST it by:
+        #     a. Un-comment the call to its test function, in main.  Run.
+        #     b. Look at the Console output.  Does it indicate any errors?
+        #     c. Compare the graphics window to the   move_by.pdf   pictures.
+        #        They should look exactly the same as each other.
+        #
+        #        Note: the pdf shows the different locations that
+        #        the T moves through, but there is only one T at any moment.
         # ---------------------------------------------------------------------
 
     def clone(self):
@@ -244,8 +272,9 @@ class CapitalT(object):
         What comes in:
           -- self
         What goes out:
-          -- Returns a new CapitalT that is located in the same position as
-               this CapitalT with the same colors for the rectangles.
+          -- Returns a new CapitalT that is located at the same position
+               as this CapitalT and has the same colors for its
+               instance-variable rectangles.
         Side effects:
           -- None
 
@@ -261,10 +290,16 @@ class CapitalT(object):
         # ---------------------------------------------------------------------
         # TODO: 7.
         #   READ the above specification, including the Example.
-        #   Implement and test this method by uncommenting the appropriate
-        #     run_test method in main. Compare the graphics window to
-        #     clone.pdf.
+        #   Implement this method, then TEST it by:
+        #     a. Un-comment the call to its test function, in main.  Run.
+        #     b. Look at the Console output.  Does it indicate any errors?
+        #     c. Compare the graphics window to the   clone.pdf   pictures.
+        #        They should look exactly the same as each other.
         # ---------------------------------------------------------------------
+        #######################################################################
+        # IMPORTANT RESTRICTION: You are NOT permitted to add any instance
+        # variables beyond  h_rect  and  v_rect, at any point of this exercise.
+        #######################################################################
 
 
 # -----------------------------------------------------------------------------
