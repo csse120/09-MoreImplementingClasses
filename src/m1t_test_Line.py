@@ -77,7 +77,7 @@ def print_failure(message='  *** FAILED the above test. ***',
 
 
 def is_implemented(line_method, expected_lines=2):
-    """ True if the given Line method is not yet implemenented. """
+    """ True if the given Line method is not yet implemented. """
     # There is probably a better way to do this...
     method = getattr(m1.Line, line_method)
     source = inspect.getsource(method)
@@ -85,10 +85,13 @@ def is_implemented(line_method, expected_lines=2):
     if doc_string:
         expected = source.replace(doc_string, '')
     else:
+        line1 = "** Your code in {} is above the method's doc string."
+        line2 = "** The doc string should always be at the top of the method."
+        line3 = "** Consider moving your code BELOW the doc string within {}."
         print()
-        print("** Your code in {} is above the method's doc string.".format(line_method))
-        print("** The doc string should always be at the top of the method.")
-        print("** Move your code BELOW the doc string within {}!".format(line_method))
+        print(line1.format(line_method))
+        print(line2)
+        print(line3.format(line_method))
         print()
         expected = re.sub(r'""".*"""', '', source,
                           flags=re.DOTALL)  # @UndefinedVariable
@@ -102,7 +105,7 @@ def is_implemented(line_method, expected_lines=2):
 def start_test(method_name):
     print()
     print('-----------------------------------------------------------')
-    print('Testing the   {}   method of the   Line   class:'.format(method_name))
+    print('Testing the   {}   method of the  Line  class:'.format(method_name))
     print('-----------------------------------------------------------')
     if not is_implemented(method_name):
         return False
@@ -179,6 +182,7 @@ def run_test_init():
 
     end_test()
 
+
 def run_test_clone():
     """ Tests the   clone   method of the Line class. """
     if not start_test('clone'):
@@ -244,8 +248,6 @@ def run_test_clone():
     # ------------------------------------------------------------------
     start = m1.Point(55, 66)
     end = m1.Point(77, 88)
-    start_clone = start.clone()
-    end_clone = end.clone()
 
     line = m1.Line(start, end)
     clone = line.clone()
@@ -669,8 +671,9 @@ def run_test_is_parallel():
 
     expected = True
     actual = line1.is_parallel(line2)
-    evaluate_test(expected, actual,
-                  'Testing two in-fact PARALLEL lines with slightly different computed slopes (from round-off):')
+    message = ('Testing two in-fact PARALLEL lines with slightly'
+               + ' different computed slopes from round-off):')
+    evaluate_test(expected, actual, message)
 
     end_test()
 
