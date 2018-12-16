@@ -85,18 +85,16 @@ class Point(object):
     """ Represents a point in 2-dimensional space. """
 
     def __init__(self, x, y):
-        """
-        Sets instance variables  x  and  y  to the given coordinates.
-        """
+        """ Sets instance variables  x  and  y  to the given coordinates. """
         self.x = x
         self.y = y
 
     def __repr__(self):
         """
         Returns a string representation of this Point.
-        For each coordinate (x and y), the representation
-          - uses no decimal points if the number is close to an integer,
-          - else it uses decimal_places places after the decimal point, where decimal_places = 2.
+        For each coordinate (x and y), the representation:
+          - Uses no decimal points if the number is close to an integer,
+          - Else it uses 2 decimal places after the decimal point.
         Examples:
            Point(10, 3.14)
            Point(3.01, 2.99)
@@ -124,7 +122,6 @@ class Point(object):
         Treats two numbers as "equal" if they are within 6 decimal
         places of each other for both x and y coordinates.
         """
-
         return (round(self.x, 6) == round(p2.x, 6) and
                 round(self.y, 6) == round(p2.y, 6))
 
@@ -150,7 +147,7 @@ class Point(object):
     def plus(self, p2):
         """
         Returns a Point whose coordinates are those of this Point
-        plus the given Point.  For example:
+        PLUS the given Point.  For example:
             p1 = Point(500, 20)
             p2 = Point(100, 13)
             p3 = p1.plus(p2)
@@ -162,7 +159,7 @@ class Point(object):
     def minus(self, p2):
         """
         Returns a Point whose coordinates are those of this Point
-        minus the given Point.  For example:
+        MINUS the given Point.  For example:
             p1 = Point(500, 20)
             p2 = Point(100, 13)
             p3 = p1.minus(p2)
@@ -341,8 +338,9 @@ class Line(object):
         What comes in:
           -- self
         What goes out: Nothing (i.e., None).
-        Side effects: MUTATES this Line so that its direction is
-        reversed (that is, its start and end points are swapped).
+        Side effects: MUTATES this Line so that its direction is reversed
+        (that is, its start and end points are swapped).
+        ** Must NOT mutate its start and end points -- just SWAP them. **
 
         Examples:
             p1 = Point(30, 17)
@@ -373,9 +371,9 @@ class Line(object):
         """
         What comes in:
           -- self
-        What goes out: Returns the slope of this Line.
-        If the line is vertical (i.e., has "infinite" slope), returns
+        What goes out: Returns the slope of this Line, or
            math.inf
+        if the line is vertical (i.e., has "infinite" slope).
         Side effects: None.
 
         Examples:
@@ -580,6 +578,7 @@ class Line(object):
           -- another Line object (line2)
         What goes out: Returns  True  if this Line is parallel to the
           given Line (line2).  Returns  False  otherwise.
+            *** SEE THE IMPORTANT NOTE BELOW, re ROUNDING numbers.
         Side effects: None.
 
         Examples:
@@ -611,9 +610,8 @@ class Line(object):
         #######################################################################
         #
         # IMPORTANT: When you test whether two FLOATING POINT numbers
-        #   are "equal", you must ROUND each to (say) 12 decimal places.
-        #   Otherwise, you risk the imprecision of floating-point
-        #   arithmetic biting you.  For example, in REAL arithmetic,
+        #   are "equal", you must deal with the imprecision
+        #   of floating-point arithmetic.  For example, in REAL arithmetic,
         #         1 / (24 * math.pi - 20 * math.pi)
         #   and
         #         3 / (72 * math.pi - 60 * math.pi)
@@ -624,14 +622,16 @@ class Line(object):
         #   respectively (hence NOT equal).
         #   Try it out if you don't believe me!
         #
-        # IMPORTANT BOTTOM-LINE:  When you want to test whether
-        # two FLOATING POINT numbers  a  and  b  are the same,
+        #######################################################################
+        # IMPORTANT BOTTOM-LINE:  When you want to test whether two
+        # FLOATING POINT numbers  a  and  b  are the same, as in this method,
         #   DON'T use:               a == b
         #   INSTEAD use:  round(a, 12) == round(b, 12)
+        ########################################################################
         #
-        # The latter compares the numbers rounded to 12 decimal places
-        # which (usually) is adequate to ignore floating-point errors
-        # and (usually) adequate to distinguish numbers that really
+        # The latter compares the numbers rounded to 12 decimal places.
+        # In the context of this exercise, doing so is adequate to ignore
+        # floating-point errors while distinguishing numbers that really
         # are different from each other.
         #######################################################################
 
@@ -680,7 +680,7 @@ class Line(object):
 #
 # We have already written the TEST functions.  They all take the form:
 #   -- m1t.run_test_BLAH()  # This runs OUR tests.
-#   -- One more test (or tests) that came directly from the Example
+#   -- One more test (or set of tests) that came directly from the Example
 #        in the specification.
 ###############################################################################
 
