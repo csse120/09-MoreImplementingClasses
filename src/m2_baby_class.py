@@ -1,5 +1,5 @@
 """
-A   Baby   class and methods that use the Baby class.
+A   Baby   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
@@ -10,7 +10,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 def main():
     """
     After you have made the Baby class, run this module. If your Baby
-    class is correct, the output of the code below should be:
+    class is correct, the output of the code below should be exactly this:
 
         Hello baby McKinley!
         Hello baby Keegan!
@@ -31,28 +31,41 @@ def main():
     """
     mckinley = Baby('McKinley')
     keegan = Baby('Keegan')
+
     for k in range(2):
         print('- - - - -')
         keegan.hour_passes()
         mckinley.feed_baby()
+
         for j in range(4):
             mckinley.hour_passes()
 
 
-# ----------------------------------------------------------------------
-# TODO: 2. Implement a class called   Baby   that has a constructor and
-#   two methods, as described below.  Your finished Baby class should
-#   cause the code above to display the expected output.  Hint: Your
-#   class will need instance variables that you must figure out.
+###############################################################################
+# TODO: 2.
 #
-# Constructor method
+#  Step 2a:  Implement a class called   Baby   that has a constructor method
+#            (__init__) and two other methods, as described below.
+#
+#  Step 2b:  Test your finished   Baby   class by running this module.
+#            Your code passes the test if it displays exactly the output
+#            shown in the doc_string for main.
+#
+# -----------------------------------------------------------------------------
+# Here (below) are the methods that you must implement in your Baby class:
+# -----------------------------------------------------------------------------
+#
+# Constructor method (__init__)
 #     What comes in:
 #        -- self
 #        -- a string for the name of the baby
 #     What goes out:  Nothing (i.e., None).
 #     Side effects:
-#        -- Sets instance variables as needed
+#        -- Sets instance variables as needed [YOU FIGURE OUT WHAT IS NEEDED!]
 #        -- Prints 'Hello baby <your baby's name>!'
+#     Example:
+#         b = Baby('McKinley')   causes the following to be printed:
+#               Hello baby McKinley!
 #
 # feed_baby
 #     What comes in:
@@ -60,45 +73,43 @@ def main():
 #     What goes out:  Nothing (i.e., None).
 #     Side effects:
 #        -- Prints 'Thank you for feeding baby <your baby's name>.'
-#        -- Modifies instance variables if needed
+#        -- Modifies instance variables as needed
+#     Example:
+#         b = Baby('Joshua')
+#         b.feed_baby()         causes the following to be printed:
+#               Hello baby Joshua!
+#               Thank you for feeding baby Joshua.
 #
 # hour_passes
 #     What comes in:
 #        -- self
 #     What goes out:  Nothing (i.e., None).
 #     Side effects:
-#      -- If it is the first time this function has been called
-#           since Baby was created or fed:
-# 	          -- Prints 'Baby <your baby's name> is sleeping.'
-#      -- If it is the second time this function has been called
-#           since baby was created or fed:
-# 	         -- Prints 'Baby <your baby's name> is awake.  Time for food.'
-#      -- If it is the third (or more) time this function has been called
-#           since baby was created or fed:
-# 	         -- Prints:
-#            'Baby <your baby's name> is CRYING uncontrollably!  Feed the Baby!'
+#      -- If this is the FIRST time this method has been called
+#         since this Baby was created or last fed, then this method prints:
+# 	             'Baby <your baby's name> is sleeping.'
 #
-# After implementing this class run this module and compare your output
-#   to the expected output of main.
+#      -- If this is the SECOND time this method has been called
+#         since baby was created or last fed, then this method prints:
+# 	             'Baby <your baby's name> is awake.  Time for food.'
 #
-# Notice that the baby is never printed, so you are not required to make
-#     a __repr__ method.  Each method call above simply does a print as
-#     a side effect.
-# ----------------------------------------------------------------------
+#      -- If this is the THIRD (OR MORE) time this method has been called
+#           since baby was created or last fed, then this method prints:
+#         'Baby <your baby's name> is CRYING uncontrollably!  Feed the Baby!'
+#
+###############################################################################
 
-########################################################################
+###############################################################################
 # The   Baby   class (and its methods) should begins here.
 # Here is a reminder for the syntax to create a new class.
 #
 #      class NameOfClass(object):
-#          """ Brief description of what objects of the class 'are'. """
+#          """ Brief description of what an object of the class 'is'. """
 #
-########################################################################
+###############################################################################
 
 
-# ----------------------------------------------------------------------
-# If this module is running at the top level (as opposed to being
-# imported by another module), then call the 'main' function.
-# ----------------------------------------------------------------------
-if __name__ == '__main__':
-    main()
+# -----------------------------------------------------------------------------
+# Calls  main  to start the ball rolling.
+# -----------------------------------------------------------------------------
+main()
