@@ -176,7 +176,6 @@ class Line(object):
     """ Represents a line segment in 2-dimensional space. """
 
     def __init__(self, start, end):
-        self.start = start
         """
         What comes in:
           -- self
