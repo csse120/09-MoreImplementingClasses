@@ -28,8 +28,9 @@ def main():
 
 def run_test_simple_t():
     """
-    Tests for the __init__ method and attach_to method.
-    See the simple_t PDF for expected output.
+    Tests for the   __init__   method and   attach_to   method.
+    Implement BOTH of them before running this test.
+    See   03b-simple_t.pdf  for the expected output.
     """
     print()
     print('--------------------------------------------------')
@@ -49,12 +50,15 @@ def run_test_simple_t():
     t3 = CapitalT(rg.Point(450, 150), 10, 15, 4)
     t3.attach_to(window)
     window.render()
-    print("See graphics window and compare to the simple_t PDF")
+    print("See graphics window and compare to the 03b-simple_t PDF")
     window.close_on_mouse_click()
 
 
 def run_test_set_colors():
-    """ Tests for the set_colors method.  See the set_colors PDF for expected output. """
+    """
+    Tests for the   set_colors   method.
+    See the  03c-set_colors.pdf   for the expected output.
+    """
     window = rg.RoseWindow(600, 400, 'Test 2 - Colorful Ts')
     t1 = CapitalT(rg.Point(300, 50), 100, 200, 20)
     t1.set_colors('red', 'magenta')
@@ -70,7 +74,10 @@ def run_test_set_colors():
 
 
 def run_test_move_by():
-    """ Tests for the move_by method.  See the move_by PDF for expected output. """
+    """
+    Tests for the   move_by   method.
+    See the   03d-move_by.pdf   for the expected output.
+    """
     window = rg.RoseWindow(600, 400, 'Test 3 - Moving T')
     little_red_t = CapitalT(rg.Point(300, 50), 60, 80, 5)
     little_red_t.set_colors('red', 'gray')
@@ -87,7 +94,10 @@ def run_test_move_by():
 
 
 def run_test_clone():
-    """ Tests for the clone method.  See the clone PDF for expected output. """
+    """
+    Tests for the   clone   method.
+    See the   03e-clone.pdf   for the expected output.
+    """
     window = rg.RoseWindow(650, 400, 'Test 4 - Cloning Ts')
     first_t = CapitalT(rg.Point(75, 50), 80, 80, 40)
     first_t.set_colors('blue', 'cyan')
@@ -106,17 +116,17 @@ def run_test_clone():
 ###############################################################################
 # The   CapitalT   class (and its methods) begins here.
 ###############################################################################
-
-
 class CapitalT(object):
     """
     Manages a CapitalT graphics object which is made up of two rectangles.
-    *** See the PDFs, especially dimensions.pdf, to help you understand this.
+    *** See the PDFs, especially
+            03a-dimensions.pdf
+        to help you understand this specification.
     """
 
     def __init__(self, intersection_center, width, height, letter_thickness):
         """
-        *** See   dimensions.pdf   to understand the following! ***
+        *** See   03a-dimensions.pdf   to understand the following! ***
 
         What comes in:
            -- self
@@ -136,7 +146,7 @@ class CapitalT(object):
           -- v_rect  (to represent the vertical rectangle in the T,
                       that is, the | part of the T)
 
-           *** See   dimensions.pdf   to understand the above! ***
+           *** See   03a-dimensions.pdf   to understand the above! ***
 
         Each rectangle is an rg.Rectangle.
 
@@ -153,7 +163,7 @@ class CapitalT(object):
                 -- t1.v_rect would have an lower right corner of (310, 240)
 
             *** Make sure that you understand this example before     ***
-            *** proceeding. See    dimensions.pdf   to understand it! ***
+            *** proceeding. See    03a-dimensions.pdf   to understand it! ***
 
         Type hints:
           :type intersection_center: rg.Point
@@ -195,8 +205,9 @@ class CapitalT(object):
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
         #     b. Look at the Console output.  Does it indicate any errors?
-        #     c. Compare the graphics window to the   simple_t.pdf   pictures.
-        #        They should look exactly the same as each other.
+        #     c. Compare the graphics window to the pictures in
+        #           03b-simple_t.pdf.
+        #        Your window should look exactly like the pictures in the PDF.
         # ---------------------------------------------------------------------
 
     def set_colors(self, fill_color, outline_color):
@@ -227,8 +238,9 @@ class CapitalT(object):
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
         #     b. Look at the Console output.  Does it indicate any errors?
-        #     c. Compare the graphics window to the  set_colors.pdf   pictures.
-        #        They should look exactly the same as each other.
+        #     c. Compare the graphics window to the pictures in
+        #           03c-set_colors.pdf.
+        #        Your window should look exactly like the pictures in the PDF.
         # ---------------------------------------------------------------------
 
     def move_by(self, dx, dy):
@@ -260,10 +272,11 @@ class CapitalT(object):
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
         #     b. Look at the Console output.  Does it indicate any errors?
-        #     c. Compare the graphics window to the   move_by.pdf   pictures.
-        #        They should look exactly the same as each other.
+        #     c. Compare the graphics window to the picture in
+        #           03d-move_by.pdf.
+        #        Your window should look exactly like the pictures in the PDF.
         #   ___
-        #   Note: the move_by.pdf shows the different locations that
+        #   Note: the 03d-move_by.pdf shows the different locations that
         #         the T moves through, but there is only one T at any moment.
         # ---------------------------------------------------------------------
 
@@ -293,8 +306,9 @@ class CapitalT(object):
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
         #     b. Look at the Console output.  Does it indicate any errors?
-        #     c. Compare the graphics window to the   clone.pdf   pictures.
-        #        They should look exactly the same as each other.
+        #     c. Compare the graphics window to the pictures in
+        #           03e-clone.pdf   pictures.
+        #        Your window should look exactly like the pictures in the PDF.
         # ---------------------------------------------------------------------
         #######################################################################
         # IMPORTANT RESTRICTION: You are NOT permitted to add any instance
