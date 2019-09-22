@@ -2,7 +2,7 @@
 A   CapitalT   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
-         Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
+         Mark Hays, Amanda Stouder, Derek Whitley, their colleagues,
          and PUT_YOUR_NAME_HERE.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
@@ -262,9 +262,9 @@ class CapitalT(object):
         #     b. Look at the Console output.  Does it indicate any errors?
         #     c. Compare the graphics window to the   move_by.pdf   pictures.
         #        They should look exactly the same as each other.
-        #
-        #        Note: the pdf shows the different locations that
-        #        the T moves through, but there is only one T at any moment.
+        #   ___
+        #   Note: the move_by.pdf shows the different locations that
+        #         the T moves through, but there is only one T at any moment.
         # ---------------------------------------------------------------------
 
     def clone(self):
